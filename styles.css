@@ -1,0 +1,261 @@
+:root {
+  --base: #141518;
+  --blue: #1B4AA1;
+  --black: #000;
+  --yellow: #EAD300;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ color: white;
+ line-break: break-all;
+}
+
+body {
+ overflow-x: hidden;
+ background-color: #EDEDED;
+}
+
+::-webkit-scrollbar {
+  width: 12.5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2.5px 0.5px rgba(0, 0, 0, 0.39);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--base);
+  border-radius: 2px;
+}
+
+header {
+ width: 100vw;
+ height: min-content;
+ display: flex;
+ justify-content: space-between;
+ padding: 20px 25px;
+ background-color: var(--base);
+ font: 500 16px "Poppins";
+ align-items: center;
+ box-shadow: 0 0 8px #2c2f35;
+ position: relative;
+}
+
+header div.title h1 {
+ font-size: 25px;
+ line-height: 25px;
+}
+
+header div.cart {
+ font-size: 20px;
+ line-height: 30px;
+ border: 3px solid #EDEDED;
+ padding: 5px 10px;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: .13s ease-out;
+ margin-right: 70px;
+}
+
+header div.cart:hover {
+ opacity: .8;
+ transform: scale(1.15);
+}
+
+main .carousel {
+ background-color: var(--base);
+ width: 100vw !important;
+ height: fit-content;
+}
+
+main .carousel .item {
+ display: none;
+}
+
+main .carousel .item.active {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+main .carousel .item.active img {
+ max-width: 500px;
+ max-height: 500px;
+}
+
+main .carousel .buttons-slide {
+ width: 100vw;
+ height: 100%;
+ top: 20%;
+ position: absolute;
+}
+
+main .carousel .buttons, main .carousel .item .dots {
+ width: 100%;
+ position: absolute;
+ display: flex;
+}
+
+main .carousel .buttons {
+ position: relative;
+ z-index: 2;
+ top: 20%;
+}
+
+main .carousel .buttons button {
+ position: absolute;
+ background: none;
+ border: none;
+ cursor: pointer;
+ font-size: 25px;
+ transition: .3s ease;
+}
+
+main .carousel .buttons button:hover {
+ opacity: .8;
+ transform: scale(1.5);
+}
+
+main .carousel .buttons button.prev {
+ left: 2%;
+}
+
+main .carousel .buttons button.next {
+ right: 3%;
+}
+
+main .carousel .dots {
+ display: flex;
+ height: 60%;
+ top: 100%;
+ z-index: 1;
+}
+
+main .carousel .dots div {
+ position: relative;
+ top: 80%;
+ width: 8px;
+ height: 8px;
+ border: 2px solid var(--blue);
+ border-radius: 50%;
+ left: 50%;
+ cursor: pointer;
+ transition: .25s;
+ margin-right: 10px;
+}
+
+main .carousel .dots div.prev {
+ margin-right: 3px;
+}
+
+main .carousel .dots div.next {
+ margin-left: 3px;
+}
+
+main .carousel .dots div.active, main .carousel .dots div:hover {
+ background: var(--blue);
+}
+
+main section.products {
+ margin-top: 50px;
+ padding-bottom: 50px;
+}
+
+section.products div.area-title {
+ width: 200px;
+ margin:  0 auto 30px;
+ text-align: center;
+ padding: 8px 25px;
+ background-color: var(--blue);
+ border: 6px solid var(--yellow);
+ border-radius: 15px;
+ font: 800 20px "Poppins";
+ letter-spacing: 1px;
+}
+
+section.products .products-cont {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+}
+
+section.products .products-cont .product {
+ min-width: 300px;
+ max-width: 300px;
+
+ max-height: 300px;
+ min-height: 300px;
+
+ border: 5px solid #fff;
+ border-radius: 10px;
+
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+
+ background-color: var(--blue);
+ padding: 15px;
+ margin: 0 15px 20px;
+}
+
+section.products .products-cont .product {
+ transition: .2s ease-in-out;
+}
+
+section.products .products-cont .product:hover {
+ transform: scale(1.2);
+ opacity: .9;
+}
+
+section.products .products-cont .product h3 {
+ font: 900 25px "Poppins";
+}
+
+section.products .products-cont .product div {
+ display: flex;
+ align-items: center;
+ margin: 20px 0;
+}
+
+section.products .products-cont .product div.short {
+ margin: 10px 0;
+}
+
+section.products .products-cont .product div img {
+ width: 150px;
+ height: 170px;
+ object-fit: contain;
+}
+
+section.products .products-cont .product div.short img {
+ height: 150px;
+}
+
+section.products .products-cont .product div span {
+ font: 400 25px "Poppins";
+ line-height: 25px;
+}
+
+section.products .products-cont .product span.purchased {
+ font: 600 17px "Poppins";
+}
+
+section.products .products-cont .product button {
+ width: 80%;
+ height: 50px;
+ background-color: var(--base);
+ color: #fff;
+ border-radius: 10px;
+ border: none;
+ font: 600 20px "Poppins";
+ cursor: pointer;
+}
+
+section.products .products-cont .product button:hover {
+ opacity: .8;
+}
+

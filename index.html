@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles.css">
+    <title>AopaClothings</title>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h1>
+                AopaClothings
+                <i class="fas fa-tshirt"></i>
+            </h1>
+        </div>
+
+        <div class="cart">
+            <span class="total">$0,00</span>
+            <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="carousel">
+            <div class="buttons-slide">
+                <div class="buttons">
+                    <button class="prev" data-page="2"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next" data-page="2"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="dots">
+                    <div class="active" data-page="1"></div>
+                    <div class="" data-page="2"></div>
+                </div>
+            </div>
+            <div class="items">
+                <div class="item active" data-page="1">
+                    <img src="./images/carousel/apresentation.png" alt="">
+                </div>
+                <div class="item" data-page="2">
+                    <img src="./images/carousel/cupom.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="highlights">
+                <div class="area-title">
+                    <h2>Highlits</h2>
+                </div>
+
+                <div class="products-cont"></div>
+            </div>
+            <div class="casual">
+                <div class="area-title">
+                    <h2>Casual</h2>
+                </div>
+
+                <div class="products-cont"></div>
+            </div>
+        </section>
+
+        
+    </main>
+    <script src="./script.js" type="module"></script>
+</body>
+</html>

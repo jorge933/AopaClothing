@@ -1,20 +1,25 @@
 :root {
   --base: #141518;
-  --blue: #1B4AA1;
+  --blue: #1b4aa1;
   --black: #000;
-  --yellow: #EAD300;
+  --yellow: #ead300;
 }
 
 * {
- margin: 0;
- padding: 0;
- color: white;
- line-break: break-all;
+  margin: 0;
+  padding: 0;
+  color: white;
+  line-break: break-all;
 }
 
 body {
- overflow-x: hidden;
- background-color: #EDEDED;
+  overflow-x: hidden;
+  background-color: #ededed;
+  user-select: none;
+}
+
+body.purchase::-webkit-scrollbar {
+  display: none;
 }
 
 ::-webkit-scrollbar {
@@ -31,246 +36,390 @@ body {
 }
 
 header {
- width: 100vw;
- height: min-content;
- display: flex;
- justify-content: space-between;
- padding: 20px 25px;
- background-color: var(--base);
- font: 500 16px "Poppins";
- align-items: center;
- box-shadow: 0 0 8px #2c2f35;
- position: relative;
+  width: 100vw;
+  height: min-content;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 25px;
+  background-color: var(--base);
+  font: 500 16px "Poppins";
+  align-items: center;
+  box-shadow: 0 0 8px #2c2f35;
+  position: fixed;
+  transition: 0.3s;
+  z-index: 3;
 }
 
-header div.title h1 {
- font-size: 25px;
- line-height: 25px;
+header.active {
+  background-color: var(--blue);
 }
 
-header div.cart {
- font-size: 20px;
- line-height: 30px;
- border: 3px solid #EDEDED;
- padding: 5px 10px;
- border-radius: 10px;
- cursor: pointer;
- transition: .13s ease-out;
- margin-right: 70px;
+div.title h1 {
+  font-size: 25px;
+  line-height: 25px;
 }
 
-header div.cart:hover {
- opacity: .8;
- transform: scale(1.15);
+div.cart {
+  font-size: 20px;
+  line-height: 30px;
+  border: 3px solid #ededed;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.13s ease-out;
+  margin-right: 50px;
 }
 
-main .carousel {
- background-color: var(--base);
- width: 100vw !important;
- height: fit-content;
+div.cart:hover {
+  opacity: 0.8;
+  transform: scale(1.15);
+  cursor: pointer;
 }
 
-main .carousel .item {
- display: none;
+.carousel {
+  background-color: var(--base);
+  width: 100vw;
+  height: fit-content;
 }
 
-main .carousel .item.active {
- width: 100%;
- height: 100%;
- display: flex;
- justify-content: center;
- align-items: center;
+.carousel .item {
+  display: none;
 }
 
-main .carousel .item.active img {
- max-width: 500px;
- max-height: 500px;
+.carousel .item.active {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-main .carousel .buttons-slide {
- width: 100vw;
- height: 100%;
- top: 20%;
- position: absolute;
+.carousel .item.active img {
+  max-width: 500px;
+  max-height: 500px;
 }
 
-main .carousel .buttons, main .carousel .item .dots {
- width: 100%;
- position: absolute;
- display: flex;
+.carousel .buttons-slide {
+  width: 100vw;
+  height: 50%;
+  top: 20%;
+  position: absolute;
 }
 
-main .carousel .buttons {
- position: relative;
- z-index: 2;
- top: 20%;
+.carousel .buttons,
+.carousel .item .dots {
+  width: 100%;
+  position: absolute;
+  display: flex;
 }
 
-main .carousel .buttons button {
- position: absolute;
- background: none;
- border: none;
- cursor: pointer;
- font-size: 25px;
- transition: .3s ease;
+.carousel .buttons {
+  position: relative;
+  z-index: 2;
+  top: 20%;
 }
 
-main .carousel .buttons button:hover {
- opacity: .8;
- transform: scale(1.5);
+.carousel .buttons button {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  transition: 0.3s ease;
 }
 
-main .carousel .buttons button.prev {
- left: 2%;
+.carousel .buttons button:hover {
+  opacity: 0.8;
+  transform: scale(1.5);
 }
 
-main .carousel .buttons button.next {
- right: 3%;
+.carousel .buttons button.prev {
+  left: 2%;
 }
 
-main .carousel .dots {
- display: flex;
- height: 60%;
- top: 100%;
- z-index: 1;
+.carousel .buttons button.next {
+  right: 3%;
 }
 
-main .carousel .dots div {
- position: relative;
- top: 80%;
- width: 8px;
- height: 8px;
- border: 2px solid var(--blue);
- border-radius: 50%;
- left: 50%;
- cursor: pointer;
- transition: .25s;
- margin-right: 10px;
+.dots {
+  display: flex;
+  height: 60%;
+  top: 100%;
+  z-index: 1;
 }
 
-main .carousel .dots div.prev {
- margin-right: 3px;
+.dots div {
+  position: relative;
+  top: 130%;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  left: 50%;
+  cursor: pointer;
+  transition: 0.25s;
+  margin-right: 10px;
 }
 
-main .carousel .dots div.next {
- margin-left: 3px;
+.dots div:nth-child(1) {
+  margin-right: 3px;
 }
 
-main .carousel .dots div.active, main .carousel .dots div:hover {
- background: var(--blue);
+.dots div:nth-child(2) {
+  margin-left: 3px;
 }
 
-main section.products {
- margin-top: 50px;
- padding-bottom: 50px;
+.dots div.active,
+.dots div:hover {
+  background: var(--blue);
+}
+
+section.products {
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+section.products .container {
+  display: none;
+}
+
+section.products .container.active {
+  display: block;
+}
+
+div.search-products {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+div.search-products .input {
+  width: 270px;
+  height: 50px;
+  padding: 5px 15px;
+  margin-left: 50px;
+  box-shadow: 0 4px 8px 4px #00000015;
+  background-color: #fafafa;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+div.search-products .input i {
+  font-size: 15px;
+  color: #ccc;
+  margin: 0 10px;
+}
+
+div.search-products .input input {
+  width: 90%;
+  height: 80%;
+  outline: none;
+  border: none;
+  background: none;
+  color: #000;
+}
+
+div.search-products .input input::placeholder {
+  color: #000;
+  transition: 0.2s;
+  position: absolute;
+  top: 50%;
+  transform: translate(-0%, -50%);
+  font-weight: 400;
+}
+
+div.search-products .input input:focus::placeholder {
+  top: 11%;
+  font: 400 10px "Poppins";
+}
+
+div.search-products .filter div,
+div.search-products .filter div span {
+  color: #000;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+}
+
+div.search-products .filter {
+  margin-right: 40px;
+}
+
+div.search-products .filtred {
+  width: 150px;
+  height: 40px;
+  padding: 5px 15px;
+  margin-left: 50px;
+  box-shadow: 0 5px 8px 4px #00000015;
+  background-color: #fafafa;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.search-products .filtred:hover,
+div.search-products .filters div:hover {
+  background-color: #eaeaea;
+}
+
+div.search-products .filtred i {
+  color: #000;
+  transition: .1s;
+  margin: 7.5px 0 0 15px;
+}
+
+div.search-products .filtred i.down {
+  transform: rotate(180deg);
+  margin: 0 0 5px 15px !important;
+}
+
+div.search-products .filters {
+  width: 180px;
+  height: max-content;
+  background-color: #fff;
+  padding: 1px 0;
+  position: absolute;
+  margin: 10px 0 0 50px;
+  border-radius: 5px;
+  box-shadow: 0 5px 8px 4px #00000015;
+  display: none;
+}
+
+div.search-products .filters.active {
+  display: block;
+}
+
+div.search-products .filters div {
+  padding: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  transition-property: transform;
+}
+
+div.search-products .filters div:hover {
+  transform: scale(0.95);
 }
 
 section.products div.area-title {
- width: 200px;
- margin:  0 auto 30px;
- text-align: center;
- padding: 8px 25px;
- background-color: var(--blue);
- border: 6px solid var(--yellow);
- border-radius: 15px;
- font: 800 20px "Poppins";
- letter-spacing: 1px;
+  width: 200px;
+  margin: 0 auto 30px;
+  text-align: center;
+  padding: 8px 25px;
+  background-color: var(--blue);
+  border: 6px solid var(--yellow);
+  border-radius: 15px;
+  font: 800 20px "Poppins";
+  letter-spacing: 1px;
 }
 
-section.products .products-cont {
- display: flex;
- justify-content: center;
- flex-wrap: wrap;
+.products-cont {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-section.products .products-cont .product {
- min-width: 300px;
- max-width: 300px;
+.products-cont .product {
+  min-width: 300px;
+  max-width: 300px;
 
- max-height: 300px;
- min-height: 300px;
+  max-height: 300px;
+  min-height: 300px;
 
- border: 5px solid #fff;
- border-radius: 10px;
+  border: 5px solid #fff;
+  border-radius: 10px;
 
- display: flex;
- flex-direction: column;
- align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
- background-color: var(--blue);
- padding: 15px;
- margin: 0 15px 20px;
+  background-color: var(--blue);
+  padding: 15px;
+  margin: 0 15px 20px;
 }
 
-section.products .products-cont .product {
- transition: .2s ease-in-out;
+.products-cont .product {
+  transition: 0.2s ease-in-out;
 }
 
-section.products .products-cont .product:hover {
- transform: scale(1.2);
- opacity: .9;
+.products-cont .product:hover {
+  transform: scale(1.2);
+  opacity: 0.9;
 }
 
-section.products .products-cont .product h3 {
- font: 900 25px "Poppins";
+.products-cont .product h3 {
+  font: 900 25px "Poppins";
 }
 
-section.products .products-cont .product div {
- display: flex;
- align-items: center;
- margin: 20px 0;
+.products-cont .product div {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
 }
 
-section.products .products-cont .product div.short {
- margin: 10px 0;
+.products-cont .product div.short {
+  margin: 10px 0;
 }
 
-section.products .products-cont .product div img {
- width: 150px;
- height: 170px;
- object-fit: contain;
+.products-cont .product div.image {
+  margin-right: 20vw;
 }
 
-section.products .products-cont .product div.short img {
- height: 150px;
+.products-cont .product div img {
+  width: 150px;
+  height: 170px;
+  object-fit: contain;
+  margin-right: 15px;
 }
 
-section.products .products-cont .product div span {
- font: 400 25px "Poppins";
- line-height: 25px;
+.products-cont .product div.short img {
+  height: 150px;
 }
 
-section.products .products-cont .product span.purchased {
- font: 600 17px "Poppins";
+.products-cont .product div span {
+  font: 400 25px "Poppins";
+  line-height: 25px;
 }
 
-section.products .products-cont .product button {
- width: 80%;
- height: 50px;
- background-color: var(--base);
- color: #fff;
- border-radius: 10px;
- border: none;
- font: 600 20px "Poppins";
- cursor: pointer;
+.products-cont .product p.purchased {
+  font: 600 17px "Poppins";
 }
 
-section.products .products-cont .product button:hover {
- opacity: .8;
+.products-cont .product button {
+  width: 80%;
+  height: 50px;
+  background-color: var(--base);
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  font: 600 20px "Poppins";
+  cursor: pointer;
+}
+
+.products-cont .product button:hover {
+  opacity: 0.8;
 }
 
 section.cart {
- display: none;
+  display: none;
+  z-index: 4;
 }
 
 section.cart.active {
- width: 100vw;
- height: 100vh;
- display: flex;
- position: fixed;
- left: 0%;
- top: 0%;
- background-color: rgba(0, 0, 0, 0.219);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  background-color: rgba(0, 0, 0, 0.219);
 }
 
 section.cart * {
@@ -278,39 +427,39 @@ section.cart * {
 }
 
 section.cart div.cont {
- width: 80%;
- height: 80%;
- padding: 20px;
- display: flex;
- flex-direction: column;
- justify-content: center;
- position: absolute;
- left: 50%;
- top: 50%;
- transform: translate(-50%, -50%);
- background-color: #FAFAFA;
- border-radius: 5px;
+  width: 80%;
+  height: 80%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fafafa;
+  border-radius: 5px;
 }
 
 section.cart div.header {
- display: flex;
- justify-content: space-between;
- border-bottom: .5px solid #000;
- padding: 0 0 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid #000;
+  padding: 0 0 10px;
 }
 
 section.cart div.header h2 {
- font: 800 23px "Poppins";
+  font: 800 23px "Poppins";
 }
 
 section.cart div.header button {
- font-size: 30px;
- background: none;
- border: none;
- cursor: pointer;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 section.cart div.header button i {
- transition: .2s ease-out;
+  transition: 0.2s ease-out;
 }
 
 section.cart div.header button:hover i {
@@ -318,139 +467,296 @@ section.cart div.header button:hover i {
 }
 
 section.cart div.products {
- display: flex;
- justify-content: center;
- flex-wrap: wrap;
- height: 100%;
- overflow: auto;
- padding: 20px;
- border-bottom: .5px solid #000;
- margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
+  border-bottom: 0.5px solid #000;
+  margin-bottom: 20px;
 }
 
 section.cart div.products .product {
- max-width: 300px;
- max-height: 125px;
- min-width: 300px;
- min-height: 125px;
- display: flex;
- background-color: #F0F0F0;
- border-radius: 10px;
- padding: 20px;
- transition: .2s ease;
- margin: 10px;
+  max-width: 300px;
+  max-height: 125px;
+  min-width: 300px;
+  min-height: 125px;
+  display: flex;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.2s ease;
+  margin: 10px;
 }
 
 section.cart div.products .product:hover {
- border: 2px solid #aaa;
- transform: scale(1.05);
+  border: 2px solid #aaa;
+  transform: scale(1.1);
 }
 
-section.cart div.products .product div.image {
- margin-right: 50px;
+section.cart div.products div.image {
+  margin-right: 50px;
 }
 
-section.cart div.products .product img {
- width: 100px;
- object-fit: contain;
+section.cart div.products img {
+  width: 100px;
+  object-fit: contain;
 }
 
-
-section.cart div.products .product div.infos {
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: space-evenly;
+section.cart div.products div.infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-section.cart div.products .product div.infos h3 {
- font: 800 20px "Poppins";
+section.cart div.products div.infos h3 {
+  font: 800 20px "Poppins";
 }
 
-section.cart div.products .product div.infos .actions {
- display: flex;
- align-items: center;
- margin: 10px 0;
+section.cart div.products div.infos .actions {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
 }
 
-section.cart div.products .product div.infos .actions button {
- background: none;
- border: none;
- margin: 0 5px;
- cursor: pointer;
+section.cart div.products div.infos .actions button {
+  background: none;
+  border: none;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
-section.cart div.products .product div.infos .actions button {
- font-size: 20px;
+section.cart div.products div.infos .actions button {
+  font-size: 20px;
 }
 
-div.products .product .actions button.remove-item i, div.products .product .actions button.remove-one {
- color: rgb(255, 46, 46);
+div.products .product button.remove-item i,
+div.products .product button.remove-one {
+  color: rgb(255, 46, 46);
 }
 
-div.products .product .actions button.add {
- color: #1B4AA1;
+div.products .product button.add {
+  color: #1b4aa1;
 }
 
-section.cart div.products .product div.infos input {
- border: 2px solid #000;
- border-radius: 5px;
- height: 10px;
- width: 40px;
- padding: 10px;
+section.cart div.products .product input {
+  border: 2px solid #000;
+  border-radius: 5px;
+  height: 10px;
+  width: 40px;
+  padding: 10px;
+  text-align: center;
 }
 
-section.cart div.products .product div.infos input::-webkit-inner-spin-button { 
+section.cart div.products .product input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 section.cart div.products .product span {
- font: 400 25px "Poppins";
- line-height: 25px;
+  font: 400 25px "Poppins";
+  line-height: 25px;
 }
 
 section.cart div.footer {
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 section.cart div.footer div {
- display: flex;
- align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 section.cart div.footer div span {
- font: 700 30px "Poppins";
- margin-right: 20px;
+  font: 700 30px "Poppins";
+  margin-right: 20px;
 }
 
 section.cart div.footer div input {
- height: 10px;
- border-radius: 5px;
- width: 150px;
- padding: 5px 15px;
+  height: 10px;
+  border-radius: 5px;
+  width: 150px;
+  padding: 5px 15px;
+  text-align: center;
+  border: 2px solid #000;
 }
 
 section.cart div.footer div input::placeholder {
- text-align: center;
- text-transform: uppercase;
- font: 800 13px "Poppins";
+  text-align: center;
+  text-transform: uppercase;
+  font: 800 13px "Poppins";
+}
+
+section.cart div.footer p {
+  display: none;
+}
+
+section.cart div.footer p.active {
+  display: initial;
+  font: 700 17px "Poppins";
+  line-height: 20px;
+  color: red;
+  margin-bottom: 10px;
 }
 
 section.cart div.footer button {
- width: 350px;
- height: 40px;
- background: none;
- border: 4px solid #000;
- border-radius: 10px;
- font: 700 20px "Poppins";
- cursor: pointer;
+  width: 350px;
+  height: 40px;
+  background: none;
+  border: 4px solid #000;
+  border-radius: 10px;
+  font: 700 20px "Poppins";
+  cursor: pointer;
 }
 
 section.cart div.footer button:hover {
- border-color: rgba(5, 216, 5, .6);
- color: rgba(5, 216, 5, .6);
- opacity: .7;
+  border-color: rgba(5, 216, 5, 0.6);
+  color: rgba(5, 216, 5, 0.6);
+  opacity: 0.7;
+}
+
+.finish {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+.unapproved {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 13vw;
+  height: 25vh;
+  padding: 0 1vw;
+
+  background-color: #f7f7f7;
+  border: 3px solid #000;
+  border-radius: 10px;
+  z-index: 10;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+.unapproved p {
+  color: #000;
+  font: 800 20px "Poppins";
+  text-align: center;
+}
+
+.unapproved img {
+  width: 80%;
+  height: 60%;
+}
+
+@media (max-width: 300px) {
+  .dots div {
+    display: none;
+  }
+
+  .carousel .buttons {
+    top: 10%;
+  }
+}
+
+@media (max-width: 520px) {
+  section.cart div.products .product {
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 100px;
+    max-height: 100px;
+  }
+
+  section.cart div.products div.infos h3 {
+    font: 800 15px "Poppins";
+  }
+
+  section.cart div.products div.infos input {
+    width: 20px;
+  }
+
+  section.cart div.products div.infos button,
+  section.cart div.products div.infos button i {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 420px) {
+  header {
+    align-items: center;
+    padding: 10px 0 10px 15px;
+    width: 100vw;
+  }
+
+  div.title h1 {
+    font-size: 20px;
+  }
+
+  div.cart {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .carousel .items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel .item img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 375px) {
+  header {
+    align-items: center;
+    padding: 5px 0 5px 10px;
+    width: 100vw;
+  }
+
+  div.title h1 {
+    font-size: 15px;
+  }
+
+  div.cart {
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .carousel {
+    height: max-content;
+  }
+
+  .dots div {
+    top: 40%;
+  }
+}
+
+@media (max-width: 300px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-height: 300px) {
+  .carousel .buttons {
+    top: 25%;
+  }
 }

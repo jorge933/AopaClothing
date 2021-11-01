@@ -1,87 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles.css" />
     <title>AopaClothings</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="title">
-            <h1>
-                AopaClothings
-                <i class="fas fa-tshirt"></i>
-            </h1>
-        </div>
+      <div class="title">
+        <h1>
+          AopaClothings
+          <i class="fas fa-tshirt"></i>
+        </h1>
+      </div>
 
-        <div class="cart">
-            <span class="total">$0,00</span>
-            <i class="fas fa-shopping-basket" aria-hidden="true"></i>
-        </div>
+      <div class="cart">
+        <span class="total">$0,00</span>
+        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+      </div>
     </header>
-
     <main>
-        <section class="carousel">
-            <div class="buttons-slide">
-                <div class="buttons">
-                    <button class="prev" data-page="2"><i class="fas fa-chevron-left"></i></button>
-                    <button class="next" data-page="2"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                <div class="dots">
-                    <div class="active" data-page="1"></div>
-                    <div class="" data-page="2"></div>
-                </div>
-            </div>
-            <div class="items">
-                <div class="item active" data-page="1">
-                    <img src="./images/carousel/apresentation.png" alt="">
-                </div>
-                <div class="item" data-page="2">
-                    <img src="./images/carousel/cupom.png" alt="">
-                </div>
-            </div>
-        </section>
+      <section class="carousel">
+        <div class="buttons-slide">
+          <div class="buttons">
+            <button class="prev" data-page="0">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="next" data-page="1">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="dots">
+            <div class="active" data-page="0"></div>
+            <div class="" data-page="1"></div>
+          </div>
+        </div>
+        <div class="items">
+          <div class="item active" data-page="0">
+            <img src="./images/carousel/apresentation.png" alt="" />
+          </div>
+          <div class="item" data-page="1">
+            <img src="./images/carousel/cupom.png" alt="" />
+          </div>
+        </div>
+      </section>
 
-        <section class="products">
-            <div class="highlights">
-                <div class="area-title">
-                    <h2>Highlits</h2>
-                </div>
+      <section class="products">
+        <div class="search-products">
+          <div class="input">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search for a product..." />
+          </div>
 
-                <div class="products-cont"></div>
+          <div class="filter">
+            <div class="filtred">
+              <span> All </span>
+              <i class="fas fa-sort-up down"></i>
             </div>
-            <div class="casual">
-                <div class="area-title">
-                    <h2>Casual</h2>
-                </div>
 
-                <div class="products-cont"></div>
+            <div class="filters">
+              <div>All</div>
+              <div>Shorts</div>
+              <div>T-Shirt</div>
+              <div>Pants</div>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section class="cart">
-            <div class="cont">
-                <div class="header">
-                    <h2>Your Cart</h2>
-                    <button class="close-cart"><i class="far fa-times-circle"></i></button>
-                </div>
-    
-                <div class="products"></div>
-    
-                <div class="footer">
-                    <div class="top">
-                        <span>Total $100</span>
-                        <input type="text" placeholder="Coupon">
-                    </div>
-                    <button>Buy</button>
-                </div>
+        <div class="highlights container active">
+          <div class="area-title">
+            <h2>Highlits</h2>
+          </div>
+
+          <div class="products-cont"></div>
+        </div>
+
+        <div class="casual container active">
+          <div class="area-title">
+            <h2>Casual</h2>
+          </div>
+
+          <div class="products-cont"></div>
+        </div>
+
+        <div class="search container">
+          <div class="area-title">
+            <h2>Result</h2>
+          </div>
+
+          <div class="products-cont"></div>
+        </div>
+      </section>
+
+      <section class="cart">
+        <div class="cont">
+          <div class="header">
+            <h2>Your Cart</h2>
+            <button class="close-cart">
+              <i class="far fa-times-circle"></i>
+            </button>
+          </div>
+
+          <div class="products"></div>
+
+          <div class="footer">
+            <div class="top">
+              <span>Total $100</span>
+              <input type="text" placeholder="Coupon" />
             </div>
-        </section>
+            <p class="message"></p>
+            <button>Buy</button>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="./script.js" type="module"></script>
-</body>
+  </body>
 </html>
